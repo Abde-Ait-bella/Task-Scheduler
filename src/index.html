@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>Document</title>
+</head>
+<body class="bg-body">
+    <div onclick="close_popup()" id="back-transparent" class="absolute w-full h-full top-0 left-0 bg-black z-10 opacity-50 hidden duration-1000"></div>
+    <div id="add-popup" class="absolute top-1/4 left-1/4 w-2/4 p-9 z-20 px-10 rounded-xl bg-body shadow-xl  hidden duration-1000">
+        <form action="#" id="form">
+            <div id="inputs" class="inputs grid grid-cols-2 gap-x-8 gap-y-5">
+                <input name="titre" class="child rounded-md p-2 px-4" placeholder="Titre" type="text">
+                <select class="child rounded-md p-2 px-4" name="status" id="">
+                    <option class="text-slate-400" value="À faire" disabled selected>Status</option>
+                    <option value="À faire">À faire</option>
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                </select>
+                <input name="date" class="child rounded-md p-2 px-4" placeholder="date" type="date">
+                <select class="child rounded-md p-2 px-4" name="limportance" id="">
+                    <option class="text-slate-400" disabled>Importance</option>
+                    <option value="Important">Important</option>
+                    <option value="Critique">Critique</option>
+                    <option value="Moyen">Moyen</option>
+                </select>
+                <textarea class="child rounded-md p-2 px-4 col-span-2" name="" id="" placeholder="Description"></textarea>
+                <div id="button" class="button col-span-2 flex justify-center gap-8">
+                    <button onclick="AddTache(event)" class="w-1/4 px-5 py-2 bg-nav text-white font-bold rounded-lg border-2 shadow-xl">Ajouter</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    <header>
+        <nav class="flex bg-nav h-16 text-white items-center px-11">
+            <div class="nav-left font-bold text-medium font-extrabold">Task Scheduler</div>
+        </nav>
+    </header>
+    <section class=" m-10 mx-16 gap-x-9 h-screen ">
+        <div class="add-task my-6 h-12 flex justify-end w-full " >
+            <button onclick="open_add_popup()" class="px-6 flex items-center font-bold text-white text-xl cursor-pointer bg-nav rounded-lg">
+                <img class="w-4 mr-3" src="../dist/icons/plus.png" alt="">
+                Ajouter</button>
+        </div>
+        <div class="cards grid grid-cols-3 justify-items-center gap-8">
+            <div id="a_faire" class="a-faire rounded-xl bg-card w-full p-4 px-6 relative">
+                <h2 class="px-5 font-bold text-xl mb-4">A faire</h2>
+                <div class="list-tasks-afair"></div>
+            </div>
+            <div id="en-cours" class="en-cours bg-card rounded-xl w-full p-4">
+                <h2 class="px-5 font-bold text-xl">En cour</h2>
+                <div class="list-tasks-encour"></div>
+            </div>
+            <div id="termine" class="termine bg-card rounded-xl w-full p-4">
+                <h2 class="px-5 font-bold text-xl">Termine</h2>
+                <div class="list-tasks-termine"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./main.js"></script>
+    <script src="../test.js"></script>
+</body>
+</html>
